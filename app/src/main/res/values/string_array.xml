@@ -2,5 +2,6 @@
 <resources>
     <string-array name="main_titles">
         <item>LifeCyle 生命周期</item>
+        <item>permissionX 权限管理</item>
     </string-array>
 </resources>

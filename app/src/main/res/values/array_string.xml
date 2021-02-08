@@ -2,5 +2,6 @@
 <resources>
     <string-array name="main_classes">
         <item>com.example.myandroidkotlin.lifecycle.LifeCycleActivty</item>
+        <item>com.example.myandroidkotlin.permissionx.PermissionActivity</item>
     </string-array>
 </resources>

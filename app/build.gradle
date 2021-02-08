@@ -42,6 +42,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    //android navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
     testImplementation 'junit:junit:4.+'
@@ -49,4 +50,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     //lifecycle extension contains LifeCycleService
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    implementation 'com.permissionx.guolindev:permissionx:1.4.0'
 }

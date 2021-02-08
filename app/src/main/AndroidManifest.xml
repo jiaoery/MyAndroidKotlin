@@ -3,6 +3,11 @@
     package="com.example.myandroidkotlin">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApplication"
@@ -12,11 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-        <activity android:name=".lifecycle.LifeCycleActivty">
+        <activity android:name=".permissionx.PermissionActivity">
 
         </activity>
-
-
+        <activity android:name=".navigation.NavigationActivity" />
+        <activity android:name=".lifecycle.LifeCycleActivty" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +30,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".lifecycle.MyService"/>
+        <service android:name=".lifecycle.MyService" />
     </application>
 
 </manifest>
