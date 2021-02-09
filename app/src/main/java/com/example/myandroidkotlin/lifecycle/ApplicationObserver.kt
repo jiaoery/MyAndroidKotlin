@@ -43,6 +43,9 @@ class ApplicationObserver:LifecycleObserver {
         Log.d(TAG,"Lifecycle.Event.ON_STOP")
     }
 
+    /**
+     * 严格意义上永远不会被调用
+     */
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroy(){
         Log.d(TAG,"Lifecycle.Event.ON_DESTROY")

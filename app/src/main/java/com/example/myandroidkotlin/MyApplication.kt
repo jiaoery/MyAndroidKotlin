@@ -2,6 +2,7 @@ package com.example.myandroidkotlin
 
 import android.app.Application
 import androidx.lifecycle.ProcessLifecycleOwner
+import androidx.navigation.Navigation
 import com.example.myandroidkotlin.lifecycle.ApplicationObserver
 
 /**
@@ -25,4 +26,5 @@ class MyApplication :Application() {
     fun initSetting(){
 
     }
+
 }
