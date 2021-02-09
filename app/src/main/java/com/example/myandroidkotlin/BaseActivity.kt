@@ -1,14 +1,16 @@
 package com.example.myandroidkotlin
 
 import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
+import android.net.NetworkRequest
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myandroidkotlin.reciever.ExistRecievr
+import com.example.myandroidkotlin.reciever.NetWorkReciever
 import com.example.myandroidkotlin.watermark.Watermark
+
 
 /**
  * ClassName: BaseActivity<br/>
@@ -26,55 +28,37 @@ open class BaseActivity : AppCompatActivity() {
          * const 编译常量
          */
         val TAG = BaseActivity::class.simpleName
-        const val EXIT_ACTION = "com.android.learning.EXIT_APP"
-        const val NETWORK_CHANGE = ConnectivityManager.CONNECTIVITY_ACTION
+        const val EXIT_ACTION = "${BuildConfig.APPLICATION_ID}.EXIT_APP"
     }
 
     private lateinit var exitReceiver:BroadcastReceiver
-
-    lateinit var networkStatusChange:OnNetworkStatusChange
+    private lateinit var networkReceiver: BroadcastReceiver
+    private lateinit var mConnectivityManager:ConnectivityManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        exitReceiver = MyReceiver()
-        networkStatusChange = object : OnNetworkStatusChange {
-            override fun onNetWorkStatusChanged(isAviable: Boolean, type: Int) {
-                //类似BaseActivity.this
-                this@BaseActivity.onNetWorkStatusChanged1(isAviable, type)
-            }
-        }
+        exitReceiver = ExistRecievr()
         val filter = IntentFilter()
         filter.addAction(EXIT_ACTION)
-        filter.addAction(NETWORK_CHANGE)
         registerReceiver(exitReceiver, filter) //注册广播接收器
-
-        Log.d(TAG,"进入页面：$this")
+        Log.d(TAG, "进入页面：$this")
         Watermark.show(this, "jiaoery")
+        //网络变化监听器
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
+            mConnectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkCallbackImpl = NetworkCallbackImpl()
+            mConnectivityManager.requestNetwork(NetworkRequest.Builder().build(),networkCallbackImpl)
+        }else{
+            networkReceiver =  NetWorkReciever()
+            val netFilter = IntentFilter()
+            netFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION)
+            registerReceiver(networkReceiver,netFilter)
 
-    }
-
-    fun onNetWorkStatusChanged1(isAvailable: Boolean, type: Int){
-
-    }
-
-
-    inner class MyReceiver : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            if (intent.action == EXIT_ACTION) {
-                //接收到退出程序的广播
-
-            } else if (intent.action == NETWORK_CHANGE) {
-                //网络改变
-                println("NETWORK_CHANGE")
-                val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-                val info = connectivityManager.activeNetworkInfo
-                if (info != null && info.isConnected) {
-                    val type = info.type
-                    networkStatusChange.onNetWorkStatusChanged(true, type)
-                } else {
-                    networkStatusChange.onNetWorkStatusChanged(false, -1)
-                }
-            }
         }
+
+
     }
+
+
+
 }
