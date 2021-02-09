@@ -76,8 +76,9 @@ object Watermark {
     }
 
 
-
-
+    /**
+     * 必须在setcontentview后被调用
+     */
     @JvmOverloads
     fun show(activity: Activity, text: String = mText) {
         if(text.isEmpty()){

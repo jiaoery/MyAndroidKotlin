@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.LifecycleService
 import com.example.myandroidkotlin.adapter.MainAdapter
 import com.example.myandroidkotlin.databinding.ActivityMainBinding
+import com.example.myandroidkotlin.watermark.Watermark
 import java.util.*
 
 class MainActivity : BaseActivity() {

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="main_classes">
-        <item>com.example.myandroidkotlin.lifecycle.LifeCycleActivty</item>
+        <item>com.example.myandroidkotlin.lifecycle.LifeCycleActivity</item>
         <item>com.example.myandroidkotlin.permissionx.PermissionActivity</item>
+        <item>com.example.myandroidkotlin.watermark.WaterMarkActivity</item>
     </string-array>
 </resources>

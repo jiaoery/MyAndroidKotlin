@@ -5,13 +5,14 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.myandroidkotlin.BaseActivity
 import com.example.myandroidkotlin.R
 import com.permissionx.guolindev.PermissionX
 
-class PermissionActivity : AppCompatActivity() {
+class PermissionActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_permission)
+//        setContentView(R.layout.activity_permission)
         PermissionX.init(this@PermissionActivity)
             .permissions(
                 Manifest.permission.CALL_PHONE,

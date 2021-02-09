@@ -2,10 +2,10 @@ package com.example.myandroidkotlin.lifecycle
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.example.myandroidkotlin.BaseActivity
 import com.example.myandroidkotlin.databinding.ActivityLifeCycleActivtyBinding
 
-class LifeCycleActivty : AppCompatActivity() {
+class LifeCycleActivity : BaseActivity() {
 
     private lateinit var myLocationListener: MyLocationListener
 
@@ -15,7 +15,7 @@ class LifeCycleActivty : AppCompatActivity() {
         setContentView(binding.root)
         // observer activity's lifecycle
         myLocationListener =
-            MyLocationListener(this@LifeCycleActivty, object : OnLocationChangedListener {
+            MyLocationListener(this@LifeCycleActivity, object : OnLocationChangedListener {
                 override fun onChanged(latitude: Double, longitude: Double) {
                     TODO("Not yet implemented")
                 }
@@ -26,7 +26,7 @@ class LifeCycleActivty : AppCompatActivity() {
         binding.start.setOnClickListener {
             startService(
                 Intent(
-                    this@LifeCycleActivty,
+                    this@LifeCycleActivity,
                     MyService::class.java
                 )
             )
@@ -35,7 +35,7 @@ class LifeCycleActivty : AppCompatActivity() {
         binding.stop.setOnClickListener {
             stopService(
                 Intent(
-                    this@LifeCycleActivty,
+                    this@LifeCycleActivity,
                     MyService::class.java
                 )
             )

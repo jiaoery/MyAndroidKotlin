@@ -21,7 +21,7 @@ import com.example.myandroidkotlin.watermark.Watermark
  * @version V1.0.0
  * @since JDK 1.8
  */
-open class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
 
     companion object{
         /**
@@ -42,7 +42,6 @@ open class BaseActivity : AppCompatActivity() {
         filter.addAction(EXIT_ACTION)
         registerReceiver(exitReceiver, filter) //注册广播接收器
         Log.d(TAG, "进入页面：$this")
-        Watermark.show(this, "jiaoery")
         //网络变化监听器
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
             mConnectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
