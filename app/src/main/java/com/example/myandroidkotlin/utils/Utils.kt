@@ -1,6 +1,7 @@
 package com.example.myandroidkotlin.utils
 
 import android.content.res.Resources
+import android.util.TypedValue
 
 /**
  * ClassName: Utils<br/>
@@ -20,9 +21,18 @@ object Utils {
      * @param spValue The value of sp.
      * @return value of px
      */
-    fun spToPx(spValue: Float): Float {
-        val fontScale: Float = Resources.getSystem().getDisplayMetrics().scaledDensity
-        return spValue * fontScale + 0.5f
-    }
+    fun spToPx(spValue: Float)=
+        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,spValue,Resources.getSystem().displayMetrics)
+
+
+    /**
+     * value dp to px
+     * @param dpValue the value of dp
+     * @return value of px
+     */
+    fun dpToPx(dpValue: Float)=
+        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,dpValue,Resources.getSystem().displayMetrics)
+
+
 
 }
