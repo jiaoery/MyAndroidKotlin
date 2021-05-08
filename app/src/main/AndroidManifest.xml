@@ -20,16 +20,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
 
-        <activity android:name=".customview.TestGuesterRollActivity"/>
+        <activity android:name=".customview.CustomViewActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".watermark.WaterMarkActivity"/>
+        <activity android:name=".customview.TestGuesterRollActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".permissionx.PermissionActivity"/>
+        <activity android:name=".watermark.WaterMarkActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".navigation.NavigationActivity" />
+        <activity android:name=".permissionx.PermissionActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".lifecycle.LifeCycleActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".navigation.NavigationActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".lifecycle.LifeCycleActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
+
+        <activity android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -6,5 +6,6 @@
         <item>com.example.myandroidkotlin.permissionx.PermissionActivity</item>
         <item>com.example.myandroidkotlin.watermark.WaterMarkActivity</item>
         <item>com.example.myandroidkotlin.customview.TestGuesterRollActivity</item>
+        <item>com.example.myandroidkotlin.customview.CustomViewActivity</item>
     </string-array>
 </resources>
