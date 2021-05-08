@@ -34,7 +34,7 @@ class MainActivity : BaseActivity() {
             map[titles[i]] = mainclasses[i]
         }
         val arrayAdapter = ArrayAdapter(this, R.layout.only_textview, titles)
-        binding.listview.adapter = arrayAdapter
+        binding.autoCompletedtextview.setAdapter(arrayAdapter)
         val adapter = MainAdapter(titles, this)
         binding.listview.adapter = adapter
         binding.listview.onItemClickListener = MyOnItemClickListener()

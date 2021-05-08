@@ -19,13 +19,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-        <activity android:name=".watermark.WaterMarkActivity">
 
-        </activity>
-        <activity android:name=".permissionx.PermissionActivity">
+        <activity android:name=".customview.TestGuesterRollActivity"/>
 
-        </activity>
+        <activity android:name=".watermark.WaterMarkActivity"/>
+
+        <activity android:name=".permissionx.PermissionActivity"/>
+
         <activity android:name=".navigation.NavigationActivity" />
+
         <activity android:name=".lifecycle.LifeCycleActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

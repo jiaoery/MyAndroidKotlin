@@ -21,7 +21,18 @@ object Utils {
      * @return value of px
      */
     fun spToPx(spValue: Float): Float {
-        val fontScale: Float = Resources.getSystem().getDisplayMetrics().scaledDensity
+        val fontScale: Float = Resources.getSystem().displayMetrics.scaledDensity
+        return spValue * fontScale + 0.5f
+    }
+
+    /**
+     * Value of sp to value of px.
+     *
+     * @param spValue The value of sp.
+     * @return value of px
+     */
+    fun dpToPx(spValue: Float): Float {
+        val fontScale: Float = Resources.getSystem().displayMetrics.scaledDensity
         return spValue * fontScale + 0.5f
     }
 

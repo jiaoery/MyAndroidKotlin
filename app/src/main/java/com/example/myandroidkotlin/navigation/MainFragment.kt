@@ -44,7 +44,7 @@ class MainFragment : Fragment() {
             //两种方法均可
             val bundle =
                 MainFragmentArgs.Builder().setUserName("Michael").setAge(30).build().toBundle()
-            Navigation.createNavigateOnClickListener(R.id.action_mainFragment_to_secondFragment,bundle)
+//            Navigation.createNavigateOnClickListener(R.id.action_mainFragment_to_secondFragment,bundle).onClick(view)
             Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_secondFragment,bundle)
         }
         return binding.root
