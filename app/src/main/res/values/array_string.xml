@@ -3,6 +3,7 @@
     <string-array name="main_classes">
         <item>com.example.myandroidkotlin.lifecycle.LifeCycleActivity</item>
         <item>com.example.myandroidkotlin.navigation.NavigationActivity</item>
+        <item>com.example.myandroidkotlin.viewmodel.ViewModelAcivity</item>
         <item>com.example.myandroidkotlin.permissionx.PermissionActivity</item>
         <item>com.example.myandroidkotlin.watermark.WaterMarkActivity</item>
         <item>com.example.myandroidkotlin.customview.TestGuesterRollActivity</item>
