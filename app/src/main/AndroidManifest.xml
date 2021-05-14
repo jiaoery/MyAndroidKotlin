@@ -19,37 +19,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-
-        <activity android:name=".customview.CustomViewActivity"
+        <activity android:name=".viewmodel.CrossViewModelActivity"></activity>
+        <activity
+            android:name=".viewmodel.TestViewModelActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".customview.TestGuesterRollActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".customview.CustomViewActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".watermark.WaterMarkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".customview.TestGuesterRollActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".permissionx.PermissionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".watermark.WaterMarkActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".navigation.NavigationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".permissionx.PermissionActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".lifecycle.LifeCycleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".navigation.NavigationActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".viewmodel.ViewModelAcivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".lifecycle.LifeCycleActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-
-        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".viewmodel.ViewModelAcivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait">
             <intent-filter>
