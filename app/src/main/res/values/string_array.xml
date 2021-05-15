@@ -4,6 +4,7 @@
         <item>LifeCyle 生命周期</item>
         <item>navigation 导航页</item>
         <item>viewmodel 数据管理</item>
+        <item>livedata 数据绑定</item>
         <item>permissionX 权限管理</item>
         <item>watermark 水印</item>
         <item>仿华为运动时间选择控件</item>
