@@ -29,10 +29,24 @@
             android:name="age"
             app:argType="integer"
             android:defaultValue="0"/>
+        <action
+            android:id="@+id/action_mainFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fourthFragment"
+            app:destination="@id/fourthFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.myandroidkotlin.navigation.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" />
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.myandroidkotlin.navigation.ThirdFragment"
+        android:label="ThirdFragment" />
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.example.myandroidkotlin.navigation.FourthFragment"
+        android:label="FourthFragment" />
 </navigation>

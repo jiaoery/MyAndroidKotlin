@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.myandroidkotlin.R
 import com.example.myandroidkotlin.databinding.FragmentMainBinding
 
@@ -20,17 +22,6 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class MainFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     private lateinit var binding:FragmentMainBinding
 
@@ -44,29 +35,35 @@ class MainFragment : Fragment() {
             //两种方法均可
             val bundle =
                 MainFragmentArgs.Builder().setUserName("Michael").setAge(30).build().toBundle()
-//            Navigation.createNavigateOnClickListener(R.id.action_mainFragment_to_secondFragment,bundle).onClick(view)
             Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_secondFragment,bundle)
         }
+
+        binding.btnToThirdFragment.setOnClickListener {
+            //两种方法均可
+            val bundle =
+                MainFragmentArgs.Builder().setUserName("Nick").setAge(28).build().toBundle()
+            findNavController(this).navigate(R.id.action_mainFragment_to_thirdFragment,bundle)
+        }
+
+        binding.btnToFourthFragment.setOnClickListener {
+            //两种方法均可
+            val bundle =
+                MainFragmentArgs.Builder().setUserName("York").setAge(24).build().toBundle()
+            Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_thirdFragment,bundle)
+        }
+
+        //Observe the result to be set by Fragment B in the stateHandle of the currentBackStackEntry
+        val currentBackStackEntry = findNavController(this).currentBackStackEntry
+        val savedStateHandle = currentBackStackEntry?.savedStateHandle
+        savedStateHandle?.getLiveData<String>(RESULT_FROM_FRAGMENT)
+            ?.observe(currentBackStackEntry, Observer { result ->
+                binding.tvResult.text = result
+            })
         return binding.root
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MainFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MainFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        const val RESULT_FROM_FRAGMENT = "RESULT_FROM_FRAGMENT"
     }
+
 }

@@ -1,26 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".navigation.MainFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
 
         <Button
             android:id="@+id/btnToSecondFragment"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="244dp"
+            android:text="To Second"
             android:textAllCaps="true"
-            android:text="To Second" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.576"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </FrameLayout>
+        <Button
+            android:id="@+id/btnToThirdFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="To Third"
+            app:layout_constraintEnd_toEndOf="@+id/btnToSecondFragment"
+            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintStart_toStartOf="@+id/btnToSecondFragment"
+            app:layout_constraintTop_toBottomOf="@+id/btnToSecondFragment" />
+
+        <Button
+            android:id="@+id/btnToFourthFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="To Fouth"
+            app:layout_constraintEnd_toEndOf="@+id/btnToThirdFragment"
+            app:layout_constraintStart_toStartOf="@+id/btnToThirdFragment"
+            app:layout_constraintTop_toBottomOf="@+id/btnToThirdFragment" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.569"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnToFourthFragment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
