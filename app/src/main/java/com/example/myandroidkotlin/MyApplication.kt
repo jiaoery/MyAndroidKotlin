@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.navigation.Navigation
 import com.example.myandroidkotlin.lifecycle.ApplicationObserver
+import com.example.myandroidkotlin.rooms.AppDatabase
 import com.example.myandroidkotlin.viewmodel.MyAndroidViewModel
 import com.example.myandroidkotlin.viewmodel.MyViewModel
 
@@ -23,6 +24,7 @@ class MyApplication :Application() {
         super.onCreate()
         initSetting()
         ProcessLifecycleOwner.get().lifecycle.addObserver(ApplicationObserver())
+        AppDatabase.create(this)
     }
 
     fun initSetting(){

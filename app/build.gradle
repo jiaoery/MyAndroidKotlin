@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'androidx.navigation.safeargs'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -56,5 +57,21 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     implementation 'com.permissionx.guolindev:permissionx:1.4.0'
+    implementation "androidx.room:room-runtime:2.3.0"
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:2.3.0"
+//    // To use Kotlin Symbolic Processing (KSP)
+//    ksp "androidx.room:room-compiler:2.3.0"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:2.3.0"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:2.3.0"
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+
 
 }

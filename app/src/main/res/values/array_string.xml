@@ -5,6 +5,7 @@
         <item>com.example.myandroidkotlin.navigation.NavigationActivity</item>
         <item>com.example.myandroidkotlin.viewmodel.TestViewModelActivity</item>
         <item>com.example.myandroidkotlin.livedata.LiveDataActivity</item>
+        <item>com.example.myandroidkotlin.rooms.RoomsActivity</item>
         <item>com.example.myandroidkotlin.permissionx.PermissionActivity</item>
         <item>com.example.myandroidkotlin.watermark.WaterMarkActivity</item>
         <item>com.example.myandroidkotlin.customview.TestGuesterRollActivity</item>
