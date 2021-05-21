@@ -17,7 +17,7 @@ import java.lang.RuntimeException
  * @version V1.0.0
  * @since JDK 1.8
  */
-@Database(entities = arrayOf(User::class), version = 2)
+@Database(entities = [User::class], version = 2,exportSchema = true)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 
