@@ -1,8 +1,11 @@
 package com.example.myandroidkotlin.reciever
 
+import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 import com.example.myandroidkotlin.BuildConfig
 import kotlin.system.exitProcess
 
@@ -17,12 +20,17 @@ import kotlin.system.exitProcess
  */
 class ExistRecievr:BroadcastReceiver() {
 
-    //自定义的退出程序的广播
-    val EXIT_ACTION = "${BuildConfig.APPLICATION_ID}.EXIT_APP"
+    companion object{
+        //自定义的退出程序的广播
+       const val CLEAR_ACTION = "${BuildConfig.APPLICATION_ID}.CLEAR_APP"
+    }
 
-    override fun onReceive(context: Context?, intent: Intent?) {
-        if(EXIT_ACTION == intent?.action){
-            exitProcess(0)
+
+    override fun onReceive(context: Context, intent: Intent?) {
+        if(CLEAR_ACTION == intent?.action){
+            val notificationManager: NotificationManager =
+                context.getSystemService(AppCompatActivity.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancelAll()
         }
     }
 }

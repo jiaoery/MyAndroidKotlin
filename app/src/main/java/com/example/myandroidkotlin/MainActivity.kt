@@ -13,9 +13,9 @@ import java.util.*
 
 class MainActivity : BaseActivity() {
 
-    private val map:HashMap<String, String> = HashMap<String, String>()
+    private val map: HashMap<String, String> = HashMap<String, String>()
 
-    lateinit var binding:ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,7 @@ class MainActivity : BaseActivity() {
     }
 
 
-    inner  class MyOnItemClickListener : OnItemClickListener {
+    inner class MyOnItemClickListener : OnItemClickListener {
         override fun onItemClick(
             parent: AdapterView<*>, view: View, position: Int,
             id: Long
@@ -61,7 +61,7 @@ class MainActivity : BaseActivity() {
      * 跳转到指定的activity
      *
      */
-    fun jump(name: String){
+    fun jump(name: String) {
         val toclass = map[name]
         if (toclass!!.isNotEmpty()) {
             val cls: Class<*>
@@ -78,8 +78,6 @@ class MainActivity : BaseActivity() {
             Toast.makeText(this, "控件未找到!请重新搜索", Toast.LENGTH_SHORT).show()
         }
     }
-
-
 
 
 }

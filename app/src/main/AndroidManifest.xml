@@ -19,10 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-        <activity android:name=".rooms.RoomsActivity"
+        <activity android:name=".notification.NotificationActivity"></activity>
+        <activity
+            android:name=".rooms.RoomsActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".livedata.LiveDataActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -75,6 +76,8 @@
         </activity>
 
         <service android:name=".lifecycle.MyService" />
+
+        <receiver android:name=".reciever.ExistRecievr"/>
     </application>
 
 </manifest>

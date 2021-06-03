@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".notification.NotificationActivity">
+
+        <Button
+            android:id="@+id/btn_create_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="创建通知"
+            android:onClick="onClick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_big_text_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="大文本"
+            android:onClick="onClick"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_create_notification"
+            app:layout_constraintStart_toEndOf="@+id/btn_create_notification"
+            app:layout_constraintTop_toTopOf="@+id/btn_create_notification" />
+
+
+        <Button
+            android:id="@+id/btn_action_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="Action"
+            android:onClick="onClick"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_big_text_notification"
+            app:layout_constraintStart_toEndOf="@+id/btn_big_text_notification"
+            app:layout_constraintTop_toTopOf="@+id/btn_big_text_notification" />
+
+        <Button
+            android:id="@+id/btn_progress_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:onClick="onClick"
+            android:text="progress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_create_notification" />
+
+        <Button
+            android:id="@+id/btn_bigimg_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="BIG_IMAGE"
+            android:onClick="onClick"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_progress_notification"
+            app:layout_constraintStart_toEndOf="@+id/btn_progress_notification"
+            app:layout_constraintTop_toTopOf="@+id/btn_progress_notification" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

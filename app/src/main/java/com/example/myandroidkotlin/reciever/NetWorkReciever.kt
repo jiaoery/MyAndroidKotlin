@@ -19,7 +19,9 @@ import androidx.core.content.ContextCompat.getSystemService
  */
 class NetWorkReciever:BroadcastReceiver() {
 
-    private val TAG = "NetWork"
+    companion object{
+        const val TAG = "NetWork"
+    }
 
     override fun onReceive(context: Context?, intent: Intent?) {
         if(ConnectivityManager.CONNECTIVITY_ACTION==intent?.action){
