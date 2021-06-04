@@ -80,8 +80,11 @@ dependencies {
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:2.3.0"
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
+
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:2.5.0"
 
 
 }

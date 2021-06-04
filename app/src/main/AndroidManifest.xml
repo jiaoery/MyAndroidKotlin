@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-        <activity android:name=".notification.NotificationActivity"></activity>
+        <activity android:name=".workmanager.WorkManagerActivity"></activity>
+        <activity android:name=".notification.NotificationActivity" />
         <activity
             android:name=".rooms.RoomsActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -77,7 +78,7 @@
 
         <service android:name=".lifecycle.MyService" />
 
-        <receiver android:name=".reciever.ExistRecievr"/>
+        <receiver android:name=".reciever.ExistRecievr" />
     </application>
 
 </manifest>
