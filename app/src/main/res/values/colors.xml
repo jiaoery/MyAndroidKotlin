@@ -44,5 +44,8 @@
     <color name="header_background">#ffdedede</color>
 
     <color name="abg">#E9E7E5</color>
+
+    <color name="popular">#ff76a5</color>
+    <color name="star">#ff0057</color>
 </resources>
 

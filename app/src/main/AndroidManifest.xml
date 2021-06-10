@@ -19,8 +19,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-        <activity android:name=".workmanager.WorkManagerActivity"></activity>
-        <activity android:name=".notification.NotificationActivity" />
+        <activity android:name=".databinding.TestBindingActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".databinding.ui.PlainOldActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".databinding.ui.SolutionActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".workmanager.WorkManagerActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".notification.NotificationActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".rooms.RoomsActivity"
             android:configChanges="keyboardHidden|orientation"
