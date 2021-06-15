@@ -26,6 +26,41 @@ android {
         }
     }
 
+    flavorDimensions "nation"
+    productFlavors{
+        dev{
+            dimension "nation"
+            //defaultconfig
+            applicationId "com.example.myandroidkotlin.dev"
+            minSdkVersion 18
+            targetSdkVersion 30
+            versionCode 101
+            versionName "1.0.1"
+            manifestPlaceholders=[ENVIRONMENT:"dev",
+                                  app_icon: "@mipmap/ic_launcher"]
+
+        }
+        product{
+            dimension "nation"
+            //defaultconfig
+            applicationId "com.example.myandroidkotlin.product"
+            minSdkVersion 16
+            targetSdkVersion 29
+            versionCode 120
+            versionName "1.2.0"
+            manifestPlaceholders=[ENVIRONMENT:"product",
+                                  app_icon: "@mipmap/ic_launcher"]
+
+        }
+
+        user{
+            dimension "nation"
+           //manifestPlaceholders
+            manifestPlaceholders=[ENVIRONMENT:"dev",
+                                  app_icon: "@mipmap/newlogo"]
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -43,9 +78,6 @@ android {
     buildFeatures {
         dataBinding = true
     }
-
-
-
 }
 
 dependencies {
