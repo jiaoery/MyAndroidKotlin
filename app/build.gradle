@@ -17,6 +17,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -38,6 +39,12 @@ android {
             versionName "1.0.1"
             manifestPlaceholders=[ENVIRONMENT:"dev",
                                   app_icon: "@mipmap/ic_launcher"]
+            //buildConfigField
+            buildConfigField "String", "TAG", '"apple"'
+            //matchingFallbacks 多module匹配条件
+//            matchingFallbacks = ['dev','product']
+
+            missingDimensionStrategy 'dev', 'product'
 
         }
         product{
@@ -50,6 +57,11 @@ android {
             versionName "1.2.0"
             manifestPlaceholders=[ENVIRONMENT:"product",
                                   app_icon: "@mipmap/ic_launcher"]
+            //buildConfigField
+            buildConfigField "String", "TAG", '"orange"'
+            //matchingFallbacks 多module匹配条件
+//            matchingFallbacks = ['dev','product']
+            missingDimensionStrategy 'dev', 'product'
 
         }
 
@@ -58,6 +70,12 @@ android {
            //manifestPlaceholders
             manifestPlaceholders=[ENVIRONMENT:"dev",
                                   app_icon: "@mipmap/newlogo"]
+            //buildConfigField
+            buildConfigField "String", "TAG", '"banana"'
+            //matchingFallbacks 多module匹配条件
+//            matchingFallbacks = ['product','dev']
+
+            missingDimensionStrategy 'dev', 'product'
         }
     }
 
@@ -93,6 +111,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation project(path: ':flavor')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -118,6 +137,9 @@ dependencies {
 
     // Kotlin + coroutines
     implementation "androidx.work:work-runtime-ktx:2.5.0"
+    //doraemonkit 滴滴检测工具
+    debugImplementation 'com.didichuxing.doraemonkit:doraemonkit:3.1.8'
+    releaseImplementation 'com.didichuxing.doraemonkit:doraemonkit:3.1.8'
 
 
 }
