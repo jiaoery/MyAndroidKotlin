@@ -19,6 +19,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 
+        missingDimensionStrategy 'consumer', 'consumed'
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += ["room.schemaLocation":
@@ -42,9 +44,10 @@ android {
             //buildConfigField
             buildConfigField "String", "TAG", '"apple"'
             //matchingFallbacks 多module匹配条件
-//            matchingFallbacks = ['dev','product']
+            matchingFallbacks = ['dev','product']
 
-            missingDimensionStrategy 'dev', 'product'
+            missingDimensionStrategy 'nations', 'dev'
+
 
         }
         product{
@@ -60,8 +63,8 @@ android {
             //buildConfigField
             buildConfigField "String", "TAG", '"orange"'
             //matchingFallbacks 多module匹配条件
-//            matchingFallbacks = ['dev','product']
-            missingDimensionStrategy 'dev', 'product'
+            matchingFallbacks = ['dev','product']
+            missingDimensionStrategy 'nations', 'product'
 
         }
 
@@ -73,9 +76,9 @@ android {
             //buildConfigField
             buildConfigField "String", "TAG", '"banana"'
             //matchingFallbacks 多module匹配条件
-//            matchingFallbacks = ['product','dev']
+            matchingFallbacks = ['product','dev']
 
-            missingDimensionStrategy 'dev', 'product'
+            missingDimensionStrategy 'nations', 'user'
         }
     }
 
@@ -112,6 +115,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation project(path: ':flavor')
+    implementation project(path: ':flavor2')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

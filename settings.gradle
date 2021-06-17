@@ -1,3 +1,4 @@
+include ':flavor2'
 include ':flavor'
 include ':app'
 rootProject.name = "MyAndroidKotlin"
