@@ -6,13 +6,15 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.media.AudioAttributes
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.app.RemoteInput
 import androidx.databinding.DataBindingUtil
 import com.example.myandroidkotlin.MainActivity
 import com.example.myandroidkotlin.R
@@ -42,6 +44,7 @@ class NotificationActivity : AppCompatActivity() {
             R.id.btn_action_notification->createActionNotification()
             R.id.btn_progress_notification->createProgressNotification()
             R.id.btn_bigimg_notification->createBigImageNotification()
+            R.id.btn_alarm_notification->createAlarmNotification()
         }
     }
 
@@ -189,16 +192,81 @@ class NotificationActivity : AppCompatActivity() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = getString(R.string.channel_name)
+
+            val soundUri = Uri.parse("android.resource://$packageName/${R.raw.notice}")
             val descriptionText = getString(R.string.channel_description)
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText
             }
+            //设置通知铃声
+            val att = AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                .build()
+            channel.setSound(soundUri, att)
+            //设置震动
+            channel.enableVibration(true)
+            channel.vibrationPattern = longArrayOf(1000, 500, 2000)
+            //是否可以绕过请勿打扰模式
+            channel.canBypassDnd()
+            //是否可以显示icon角标
+            channel.canShowBadge()
+            channel.setShowBadge(true)
+            //是否显示通知闪灯
+            channel.enableLights(true)
+            //收到消息时震动提示
+            channel.enableVibration(true)
+            //设置绕过免打扰
+            channel.setBypassDnd(true)
+            channel.lockscreenVisibility = NotificationCompat.VISIBILITY_PUBLIC
+            //设置闪光灯颜色
+            channel.lightColor = Color.RED
+            //获取设置铃声设置
+//            channel.audioAttributes
+            //设置震动模式
+            val patterns = longArrayOf(100L, 200L, 100L)
+            channel.vibrationPattern = patterns
+            //是否会闪光
+            channel.shouldShowLights()
             // Register the channel with the system
             val notificationManager: NotificationManager =
                 getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+    }
+
+    private fun createAlarmNotification(){
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        //also can be service or BroadcastReciever
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+
+        val snoozeIntent = Intent(this, ExistRecievr::class.java).apply {
+            action = CLEAR_ACTION
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                putExtra(EXTRA_NOTIFICATION_ID, 2312321)
+            }
+        }
+        val snoozePendingIntent: PendingIntent =
+            PendingIntent.getBroadcast(this, 0, snoozeIntent, 0)
+
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.fengche)
+            .setContentTitle("标题")
+            .setContentText("我是一个小测试符号")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .addAction(R.drawable.clear,getString(R.string.clear),snoozePendingIntent)
+            //normal intent
+            .setContentIntent(pendingIntent)
+            .setDefaults(NotificationCompat.DEFAULT_SOUND)
+            //full screen  intent
+//            .setFullScreenIntent(pendingIntent)
+            .setAutoCancel(true)
+        val notificationManager: NotificationManager =
+            getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(2312321,builder.build())
     }
 
 

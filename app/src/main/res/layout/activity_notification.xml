@@ -73,5 +73,17 @@
             app:layout_constraintStart_toEndOf="@+id/btn_progress_notification"
             app:layout_constraintTop_toTopOf="@+id/btn_progress_notification" />
 
+        <Button
+            android:id="@+id/btn_alarm_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="ALARM"
+            android:onClick="onClick"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_bigimg_notification"
+            app:layout_constraintStart_toEndOf="@+id/btn_bigimg_notification"
+            app:layout_constraintTop_toTopOf="@+id/btn_bigimg_notification" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
