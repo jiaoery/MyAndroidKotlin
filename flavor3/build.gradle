@@ -30,18 +30,24 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    flavorDimensions "nation"
-    productFlavors{
-        dev{
-            dimension "nation"
+    flavorDimensions 'api', 'version'
 
-        }
-        product{
-            dimension "nation"
+    productFlavors {
+        demo {
+            dimension 'version'
         }
 
-        user{
-            dimension "nation"
+        full {
+            dimension 'version'
+
+        }
+
+        minApi24 {
+            dimension 'api'
+        }
+
+        minApi21 {
+            dimension "api"
         }
     }
 }

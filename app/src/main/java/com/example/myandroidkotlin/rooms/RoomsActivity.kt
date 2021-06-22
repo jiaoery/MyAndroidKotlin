@@ -21,7 +21,7 @@ class RoomsActivity : AppCompatActivity() {
             AppDatabase.getRooms().userDao().insertAll(User(178,"李","娇娇"))
             val all = AppDatabase.getRooms().userDao().getAll()
             if (all.isNotEmpty()){
-              textView.text = all[0].firstName
+              textView.text = all[0].firstName+all[0].lastName
             }
         }
 

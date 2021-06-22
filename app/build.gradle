@@ -39,12 +39,15 @@ android {
             targetSdkVersion 30
             versionCode 101
             versionName "1.0.1"
-            manifestPlaceholders=[ENVIRONMENT:"dev",
-                                  app_icon: "@mipmap/ic_launcher"]
+            manifestPlaceholders=[ENVIRONMENT:"main",
+                                  app_icon: "@mipmap/newlogo",
+                                  app_name:"@string/app_name_dev"]
             //buildConfigField
             buildConfigField "String", "TAG", '"apple"'
+            buildConfigField "int", "BASE_PORY", '12'
+            buildConfigField "Boolean", "IS_OK", 'true'
             //matchingFallbacks 多module匹配条件
-            matchingFallbacks = ['dev','product']
+            matchingFallbacks = ['dev']
 
             missingDimensionStrategy 'nations', 'dev'
 
@@ -58,12 +61,13 @@ android {
             targetSdkVersion 29
             versionCode 120
             versionName "1.2.0"
-            manifestPlaceholders=[ENVIRONMENT:"product",
-                                  app_icon: "@mipmap/ic_launcher"]
+            manifestPlaceholders=[ENVIRONMENT:"main",
+                                  app_icon: "@mipmap/newlogo",
+                                  app_name:"@string/app_name_product"]
             //buildConfigField
             buildConfigField "String", "TAG", '"orange"'
             //matchingFallbacks 多module匹配条件
-            matchingFallbacks = ['dev','product']
+            matchingFallbacks = ['dev']
             missingDimensionStrategy 'nations', 'product'
 
         }
@@ -71,8 +75,9 @@ android {
         user{
             dimension "nation"
            //manifestPlaceholders
-            manifestPlaceholders=[ENVIRONMENT:"dev",
-                                  app_icon: "@mipmap/newlogo"]
+            manifestPlaceholders=[ENVIRONMENT:"main",
+                                  app_icon: "@mipmap/newlogo",
+                                  app_name:"@string/app_name"]
             //buildConfigField
             buildConfigField "String", "TAG", '"banana"'
             //matchingFallbacks 多module匹配条件
