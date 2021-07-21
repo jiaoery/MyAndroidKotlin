@@ -1,4 +1,4 @@
-package com.example.myandroidkotlin.ui
+package com.example.myandroidkotlin.view
 
 import android.content.Context
 import android.graphics.Canvas

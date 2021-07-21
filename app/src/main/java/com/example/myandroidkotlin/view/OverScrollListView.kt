@@ -1,4 +1,4 @@
-package com.example.myandroidkotlin.ui
+package com.example.myandroidkotlin.view
 
 import android.annotation.TargetApi
 import android.content.Context

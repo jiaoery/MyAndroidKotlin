@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".customview.TestGuesterRollActivity">
 
-    <com.example.myandroidkotlin.ui.GestureRollView
+    <com.example.myandroidkotlin.view.GestureRollView
         android:id="@+id/gr_view"
         android:layout_width="match_parent"
         android:layout_height="120dp"

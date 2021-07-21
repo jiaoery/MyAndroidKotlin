@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -19,26 +18,33 @@
         android:label="${app_name}"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-        <activity android:name=".databinding.TestBindingActivity"
+        <activity android:name=".view.TestDimpleViewActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".databinding.ui.PlainOldActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.TestSpreadViewActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".databinding.ui.SolutionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".databinding.TestBindingActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".workmanager.WorkManagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".databinding.ui.PlainOldActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".notification.NotificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".databinding.ui.SolutionActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
-
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".workmanager.WorkManagerActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".notification.NotificationActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".rooms.RoomsActivity"
             android:configChanges="keyboardHidden|orientation"
