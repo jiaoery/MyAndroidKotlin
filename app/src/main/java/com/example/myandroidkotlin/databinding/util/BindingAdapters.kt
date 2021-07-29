@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.databinding.basicsample.util
+package com.example.myandroidkotlin.databinding.util
 
 import android.content.Context
 import android.content.res.ColorStateList

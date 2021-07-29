@@ -12,6 +12,7 @@
         <item>com.example.myandroidkotlin.watermark.WaterMarkActivity</item>
         <item>com.example.myandroidkotlin.customview.TestGuesterRollActivity</item>
         <item>com.example.myandroidkotlin.customview.CustomViewActivity</item>
+        <item>com.example.myandroidkotlin.customview.Hencoder1Activity</item>
         <item>com.example.myandroidkotlin.view.TestSpreadViewActivity</item>
         <item>com.example.myandroidkotlin.view.TestDimpleViewActivity</item>
         <item>com.example.myandroidkotlin.notification.NotificationActivity</item>
