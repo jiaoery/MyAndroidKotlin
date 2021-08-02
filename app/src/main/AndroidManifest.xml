@@ -18,9 +18,11 @@
         android:label="${app_name}"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-        <activity android:name=".customview.Hencoder1Activity"
+        <activity android:name=".customview.Hencoder2Activity"></activity>
+        <activity
+            android:name=".customview.Hencoder1Activity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.TestDimpleViewActivity"
             android:configChanges="keyboardHidden|orientation"

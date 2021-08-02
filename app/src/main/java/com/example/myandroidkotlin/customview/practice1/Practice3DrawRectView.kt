@@ -1,4 +1,4 @@
-package com.example.myandroidkotlin.customview.practice
+package com.example.myandroidkotlin.customview.practice1
 
 import android.content.Context
 import android.graphics.Canvas
