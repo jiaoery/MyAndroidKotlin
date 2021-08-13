@@ -20,7 +20,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewOutlineProvider;
@@ -35,7 +34,6 @@ import com.example.myandroidkotlin.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * ClassName: SpreadView1<br/>
@@ -57,7 +55,7 @@ public class SpreadView extends androidx.appcompat.widget.AppCompatImageView {
     private List<Integer> alphas = new ArrayList<>();//对应每层圆的透明度
 
     private boolean mReady;
-    private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
+    private static final ImageView.ScaleType SCALE_TYPE = ImageView.ScaleType.CENTER_CROP;
 
     private Bitmap mBitmap;
     private BitmapShader mBitmapShader;
@@ -385,12 +383,10 @@ public class SpreadView extends androidx.appcompat.widget.AppCompatImageView {
                 alpha = alpha - distance > 0 ? alpha - distance : 1;
                 alphas.set(i, alpha);
                 spreadRadius.set(i, width + distance);
-//                Log.d("SpreadViewTest","count:"+i+"width:"+width+",mDrawableRadius:"+mDrawableRadius+";spreadRadius.size()"+spreadRadius.size());
                 //绘制扩散的圆
                 canvas.drawCircle(centerX, centerY, mDrawableRadius+width, spreadPaint);
             }
         }
-        Log.d("SpreadViewTest","count:"+0+"width:"+spreadRadius.get(0)+",mDrawableRadius:"+mDrawableRadius+";spreadRadius.size()"+spreadRadius.size());
         //当最外层扩散圆半径达到最大半径时添加新扩散圆
         if (spreadRadius.get(spreadRadius.size() - 1) > 2*distance) {
             spreadRadius.add(0);
