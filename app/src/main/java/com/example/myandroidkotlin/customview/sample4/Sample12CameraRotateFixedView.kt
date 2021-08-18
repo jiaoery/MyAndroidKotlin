@@ -6,22 +6,14 @@ import android.util.AttributeSet
 import android.view.View
 import com.example.myandroidkotlin.R
 
-class Sample12CameraRotateFixedView : View {
+class Sample12CameraRotateFixedView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?=null, defStyleAttr: Int=0)
+    : View(context, attrs, defStyleAttr) {
     var paint = Paint(Paint.ANTI_ALIAS_FLAG)
     var bitmap: Bitmap? = null
     var point1 = Point(200, 200)
     var point2 = Point(600, 200)
     var camera = Camera()
     var mMatrix = Matrix()
-
-    constructor(context: Context?) : super(context) {}
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
-    }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)

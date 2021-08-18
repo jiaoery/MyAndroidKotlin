@@ -9,7 +9,8 @@ import android.view.View
 import android.view.animation.LinearInterpolator
 import com.example.myandroidkotlin.R
 
-class Sample13CameraRotateHittingFaceView : View {
+class Sample13CameraRotateHittingFaceView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?=null, defStyleAttr: Int=0)
+    : View(context, attrs, defStyleAttr) {
     var paint = Paint(Paint.ANTI_ALIAS_FLAG)
     var bitmap: Bitmap? = null
     var point = Point(200, 50)
@@ -17,15 +18,6 @@ class Sample13CameraRotateHittingFaceView : View {
     var mMatrix = Matrix()
     var degrees = 0
     var animator = ObjectAnimator.ofInt(this, "degree", 0, 360)
-
-    constructor(context: Context?) : super(context) {}
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
-    }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()

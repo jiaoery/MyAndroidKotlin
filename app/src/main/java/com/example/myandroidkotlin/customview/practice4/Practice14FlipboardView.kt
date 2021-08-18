@@ -9,21 +9,13 @@ import android.view.View
 import android.view.animation.LinearInterpolator
 import com.example.myandroidkotlin.R
 
-class Practice14FlipboardView : View {
+class Practice14FlipboardView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?=null, defStyleAttr: Int=0)
+    : View(context, attrs, defStyleAttr) {
     var paint = Paint(Paint.ANTI_ALIAS_FLAG)
     var bitmap: Bitmap? = null
     var camera = Camera()
     var degrees = 0
     var animator = ObjectAnimator.ofInt(this, "degree", 0, 180)
-
-    constructor(context: Context?) : super(context) {}
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
-    }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
