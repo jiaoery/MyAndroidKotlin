@@ -12,6 +12,7 @@
         <item>com.example.myandroidkotlin.watermark.WaterMarkActivity</item>
         <item>com.example.myandroidkotlin.customview.TestGuesterRollActivity</item>
         <item>com.example.myandroidkotlin.customview.CustomViewActivity</item>
+        <item>com.example.myandroidkotlin.customview.XformodeActivity</item>
         <item>com.example.myandroidkotlin.customview.Hencoder1Activity</item>
         <item>com.example.myandroidkotlin.customview.Hencoder2Activity</item>
         <item>com.example.myandroidkotlin.customview.Hencoder3Activity</item>

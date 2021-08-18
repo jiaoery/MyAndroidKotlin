@@ -18,9 +18,13 @@
         android:label="${app_name}"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-        <activity android:name=".customview.Hencoder4Activity"
+        <activity android:name=".customview.XformodeActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".customview.Hencoder4Activity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".customview.Hencoder3Activity"
             android:configChanges="keyboardHidden|orientation"
