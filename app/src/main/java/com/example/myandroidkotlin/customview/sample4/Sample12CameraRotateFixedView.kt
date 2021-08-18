@@ -1,77 +1,61 @@
-package com.example.myandroidkotlin.customview.sample4;
+package com.example.myandroidkotlin.customview.sample4
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Camera;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.util.AttributeSet;
-import android.view.View;
+import android.content.Context
+import android.graphics.*
+import android.util.AttributeSet
+import android.view.View
+import com.example.myandroidkotlin.R
 
-import androidx.annotation.Nullable;
+class Sample12CameraRotateFixedView : View {
+    var paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    var bitmap: Bitmap? = null
+    var point1 = Point(200, 200)
+    var point2 = Point(600, 200)
+    var camera = Camera()
+    var mMatrix = Matrix()
 
-import com.example.myandroidkotlin.R;
-
-public class Sample12CameraRotateFixedView extends View {
-    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    Bitmap bitmap;
-    Point point1 = new Point(200, 200);
-    Point point2 = new Point(600, 200);
-    Camera camera = new Camera();
-    Matrix matrix = new Matrix();
-
-    public Sample12CameraRotateFixedView(Context context) {
-        super(context);
+    constructor(context: Context?) : super(context) {}
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
     }
 
-    public Sample12CameraRotateFixedView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        val bitmapWidth = bitmap!!.width
+        val bitmapHeight = bitmap!!.height
+        val center1X = point1.x + bitmapWidth / 2
+        val center1Y = point1.y + bitmapHeight / 2
+        val center2X = point2.x + bitmapWidth / 2
+        val center2Y = point2.y + bitmapHeight / 2
+        camera.save()
+        mMatrix.reset()
+        camera.rotateX(30f)
+        camera.getMatrix(matrix)
+        camera.restore()
+        mMatrix.preTranslate(-center1X.toFloat(), -center1Y.toFloat())
+        mMatrix.postTranslate(center1X.toFloat(), center1Y.toFloat())
+        canvas.save()
+        canvas.concat(mMatrix)
+        canvas.drawBitmap(bitmap!!, point1.x.toFloat(), point1.y.toFloat(), paint)
+        canvas.restore()
+        camera.save()
+        mMatrix.reset()
+        camera.rotateY(30f)
+        camera.getMatrix(mMatrix)
+        camera.restore()
+        mMatrix.preTranslate(-center2X.toFloat(), -center2Y.toFloat())
+        mMatrix.postTranslate(center2X.toFloat(), center2Y.toFloat())
+        canvas.save()
+        canvas.concat(mMatrix)
+        canvas.drawBitmap(bitmap!!, point2.x.toFloat(), point2.y.toFloat(), paint)
+        canvas.restore()
     }
 
-    public Sample12CameraRotateFixedView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.maps);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-        int bitmapWidth = bitmap.getWidth();
-        int bitmapHeight = bitmap.getHeight();
-        int center1X = point1.x + bitmapWidth / 2;
-        int center1Y = point1.y + bitmapHeight / 2;
-        int center2X = point2.x + bitmapWidth / 2;
-        int center2Y = point2.y + bitmapHeight / 2;
-
-        camera.save();
-        matrix.reset();
-        camera.rotateX(30);
-        camera.getMatrix(matrix);
-        camera.restore();
-        matrix.preTranslate(-center1X, -center1Y);
-        matrix.postTranslate(center1X, center1Y);
-        canvas.save();
-        canvas.concat(matrix);
-        canvas.drawBitmap(bitmap, point1.x, point1.y, paint);
-        canvas.restore();
-
-        camera.save();
-        matrix.reset();
-        camera.rotateY(30);
-        camera.getMatrix(matrix);
-        camera.restore();
-        matrix.preTranslate(-center2X, -center2Y);
-        matrix.postTranslate(center2X, center2Y);
-        canvas.save();
-        canvas.concat(matrix);
-        canvas.drawBitmap(bitmap, point2.x, point2.y, paint);
-        canvas.restore();
+    init {
+        bitmap = BitmapFactory.decodeResource(resources, R.drawable.maps)
     }
 }

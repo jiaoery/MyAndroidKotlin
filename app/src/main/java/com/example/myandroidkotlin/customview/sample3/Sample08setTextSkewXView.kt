@@ -1,39 +1,23 @@
-package com.example.myandroidkotlin.customview.sample3;
+package com.example.myandroidkotlin.customview.sample3
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.util.AttributeSet;
-import android.view.View;
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.util.AttributeSet
+import android.view.View
 
-import androidx.annotation.Nullable;
+class Sample08setTextSkewXView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?=null, defStyleAttr: Int=0)
+    : View(context, attrs, defStyleAttr) {
+    var paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    var text = "Hello HenCoder"
 
-public class Sample08setTextSkewXView extends View {
-    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    String text = "Hello HenCoder";
-
-    public Sample08setTextSkewXView(Context context) {
-        super(context);
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        canvas.drawText(text, 50f, 100f, paint)
     }
 
-    public Sample08setTextSkewXView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public Sample08setTextSkewXView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    {
-        paint.setTextSize(60);
-
-        paint.setTextSkewX(-0.5f);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-        canvas.drawText(text, 50, 100, paint);
+    init {
+        paint.textSize = 60f
+        paint.textSkewX = -0.5f
     }
 }

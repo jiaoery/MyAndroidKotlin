@@ -1,50 +1,34 @@
-package com.example.myandroidkotlin.customview.sample3;
+package com.example.myandroidkotlin.customview.sample3
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.util.AttributeSet;
-import android.view.View;
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.util.AttributeSet
+import android.view.View
 
-import androidx.annotation.Nullable;
+class Sample12MeasureTextView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?=null, defStyleAttr: Int=0)
+    : View(context, attrs, defStyleAttr)  {
+    var paint1 = Paint(Paint.ANTI_ALIAS_FLAG)
+    var paint2 = Paint(Paint.ANTI_ALIAS_FLAG)
+    var text1 = "三个月内你胖了"
+    var text2 = "4.5"
+    var text3 = "公斤"
+    var measuredText1 = 0f
+    var measuredText2 = 0f
 
-public class Sample12MeasureTextView extends View {
-    Paint paint1 = new Paint(Paint.ANTI_ALIAS_FLAG);
-    Paint paint2 = new Paint(Paint.ANTI_ALIAS_FLAG);
-    String text1 = "三个月内你胖了";
-    String text2 = "4.5";
-    String text3 = "公斤";
-    float measuredText1;
-    float measuredText2;
-
-    public Sample12MeasureTextView(Context context) {
-        super(context);
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        canvas.drawText(text1, 50f, 200f, paint1)
+        canvas.drawText(text2, 50 + measuredText1, 200f, paint2)
+        canvas.drawText(text3, 50 + measuredText1 + measuredText2, 200f, paint1)
     }
 
-    public Sample12MeasureTextView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public Sample12MeasureTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    {
-        paint1.setTextSize(60);
-        paint2.setTextSize(120);
-        paint2.setColor(Color.parseColor("#E91E63"));
-
-        measuredText1 = paint1.measureText(text1);
-        measuredText2 = paint2.measureText(text2);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-        canvas.drawText(text1, 50, 200, paint1);
-        canvas.drawText(text2, 50 + measuredText1, 200, paint2);
-        canvas.drawText(text3, 50 + measuredText1 + measuredText2, 200, paint1);
+    init {
+        paint1.textSize = 60f
+        paint2.textSize = 120f
+        paint2.color = Color.parseColor("#E91E63")
+        measuredText1 = paint1.measureText(text1)
+        measuredText2 = paint2.measureText(text2)
     }
 }

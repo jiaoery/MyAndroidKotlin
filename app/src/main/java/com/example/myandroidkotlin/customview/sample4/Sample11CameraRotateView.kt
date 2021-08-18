@@ -1,60 +1,46 @@
-package com.example.myandroidkotlin.customview.sample4;
+package com.example.myandroidkotlin.customview.sample4
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Camera;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.util.AttributeSet;
-import android.view.View;
+import android.content.Context
+import android.graphics.*
+import android.util.AttributeSet
+import android.view.View
+import com.example.myandroidkotlin.R
 
-import androidx.annotation.Nullable;
+class Sample11CameraRotateView : View {
+    var paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    var bitmap: Bitmap? = null
+    var point1 = Point(200, 200)
+    var point2 = Point(600, 200)
+    var camera = Camera()
 
-import com.example.myandroidkotlin.R;
-
-public class Sample11CameraRotateView extends View {
-    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    Bitmap bitmap;
-    Point point1 = new Point(200, 200);
-    Point point2 = new Point(600, 200);
-    Camera camera = new Camera();
-
-    public Sample11CameraRotateView(Context context) {
-        super(context);
+    constructor(context: Context?) : super(context) {}
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
     }
 
-    public Sample11CameraRotateView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        canvas.save()
+        camera.save()
+        camera.rotateX(30f)
+        camera.applyToCanvas(canvas)
+        camera.restore()
+        canvas.drawBitmap(bitmap!!, point1.x.toFloat(), point1.y.toFloat(), paint)
+        canvas.restore()
+        canvas.save()
+        camera.save()
+        camera.rotateY(30f)
+        camera.applyToCanvas(canvas)
+        camera.restore()
+        canvas.drawBitmap(bitmap!!, point2.x.toFloat(), point2.y.toFloat(), paint)
+        canvas.restore()
     }
 
-    public Sample11CameraRotateView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.maps);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-        canvas.save();
-        camera.save();
-        camera.rotateX(30);
-        camera.applyToCanvas(canvas);
-        camera.restore();
-        canvas.drawBitmap(bitmap, point1.x, point1.y, paint);
-        canvas.restore();
-
-        canvas.save();
-        camera.save();
-        camera.rotateY(30);
-        camera.applyToCanvas(canvas);
-        camera.restore();
-        canvas.drawBitmap(bitmap, point2.x, point2.y, paint);
-        canvas.restore();
+    init {
+        bitmap = BitmapFactory.decodeResource(resources, R.drawable.maps)
     }
 }

@@ -1,39 +1,25 @@
-package com.example.myandroidkotlin.customview.practice3;
+package com.example.myandroidkotlin.customview.practice3
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.util.AttributeSet;
-import android.view.View;
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.util.AttributeSet
+import android.view.View
 
-import androidx.annotation.Nullable;
+class Practice01DrawTextView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?=null, defStyleAttr: Int=0)
+    :View(context, attrs, defStyleAttr) {
+    var paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    var text = "Hello HenCoder"
 
-public class Practice01DrawTextView extends View {
-    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    String text = "Hello HenCoder";
-
-    public Practice01DrawTextView(Context context) {
-        super(context);
-    }
-
-    public Practice01DrawTextView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public Practice01DrawTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    {
-        paint.setTextSize(60);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
 
         // 使用 drawText() 来绘制文字
         // 文字坐标： (50, 100)
-        canvas.drawText(text,50,100,paint);
+        canvas.drawText(text, 50f, 100f, paint)
+    }
+
+    init {
+        paint.textSize = 60f
     }
 }

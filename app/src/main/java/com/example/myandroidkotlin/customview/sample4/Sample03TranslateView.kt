@@ -1,52 +1,39 @@
-package com.example.myandroidkotlin.customview.sample4;
+package com.example.myandroidkotlin.customview.sample4
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.util.AttributeSet;
-import android.view.View;
+import android.content.Context
+import android.graphics.*
+import android.util.AttributeSet
+import android.view.View
+import com.example.myandroidkotlin.R
 
-import androidx.annotation.Nullable;
+class Sample03TranslateView : View {
+    var paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    var bitmap: Bitmap? = null
+    var point1 = Point(200, 200)
+    var point2 = Point(600, 200)
 
-import com.example.myandroidkotlin.R;
-
-public class Sample03TranslateView extends View {
-    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    Bitmap bitmap;
-    Point point1 = new Point(200, 200);
-    Point point2 = new Point(600, 200);
-
-    public Sample03TranslateView(Context context) {
-        super(context);
+    constructor(context: Context?) : super(context) {}
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
     }
 
-    public Sample03TranslateView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        canvas.save()
+        canvas.translate(-100f, -100f)
+        canvas.drawBitmap(bitmap!!, point1.x.toFloat(), point1.y.toFloat(), paint)
+        canvas.restore()
+        canvas.save()
+        canvas.translate(200f, 0f)
+        canvas.drawBitmap(bitmap!!, point2.x.toFloat(), point2.y.toFloat(), paint)
+        canvas.restore()
     }
 
-    public Sample03TranslateView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.maps);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-        canvas.save();
-        canvas.translate(-100, -100);
-        canvas.drawBitmap(bitmap, point1.x, point1.y, paint);
-        canvas.restore();
-
-        canvas.save();
-        canvas.translate(200, 0);
-        canvas.drawBitmap(bitmap, point2.x, point2.y, paint);
-        canvas.restore();
+    init {
+        bitmap = BitmapFactory.decodeResource(resources, R.drawable.maps)
     }
 }

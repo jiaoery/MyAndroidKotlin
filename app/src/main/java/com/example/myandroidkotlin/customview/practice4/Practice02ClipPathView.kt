@@ -1,59 +1,46 @@
-package com.example.myandroidkotlin.customview.practice4;
+package com.example.myandroidkotlin.customview.practice4
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Point;
-import android.util.AttributeSet;
-import android.view.View;
+import android.content.Context
+import android.graphics.*
+import android.util.AttributeSet
+import android.view.View
+import com.example.myandroidkotlin.R
 
-import androidx.annotation.Nullable;
+class Practice02ClipPathView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?=null, defStyleAttr: Int=0)
+    : View(context, attrs, defStyleAttr) {
+    var paint = Paint()
+    var bitmap: Bitmap? = null
+    var point1 = Point(200, 200)
+    var point2 = Point(600, 200)
+    var path1 = Path()
+    var path2 = Path()
 
-import com.example.myandroidkotlin.R;
-
-public class Practice02ClipPathView extends View {
-    Paint paint = new Paint();
-    Bitmap bitmap;
-    Point point1 = new Point(200, 200);
-    Point point2 = new Point(600, 200);
-
-    Path path1 = new Path();
-    Path path2 = new Path();
-
-    public Practice02ClipPathView(Context context) {
-        super(context);
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        canvas.save()
+        canvas.clipPath(path1)
+        canvas.drawBitmap(bitmap!!, point1.x.toFloat(), point1.y.toFloat(), paint)
+        canvas.restore()
+        canvas.save()
+        canvas.clipPath(path2)
+        canvas.drawBitmap(bitmap!!, point2.x.toFloat(), point2.y.toFloat(), paint)
+        canvas.restore()
     }
 
-    public Practice02ClipPathView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public Practice02ClipPathView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    {
-        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.maps);
-        path1.addCircle(point1.x+200,point1.y+200, 150,Path.Direction.CW);
-
-        path2.setFillType(Path.FillType.INVERSE_WINDING);
-        path2.addCircle(point2.x+200,point2.y+200,150, Path.Direction.CW);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.save();
-        canvas.clipPath(path1);
-        canvas.drawBitmap(bitmap, point1.x, point1.y, paint);
-        canvas.restore();
-
-        canvas.save();
-        canvas.clipPath(path2);
-        canvas.drawBitmap(bitmap, point2.x, point2.y, paint);
-        canvas.restore();
+    init {
+        bitmap = BitmapFactory.decodeResource(resources, R.drawable.maps)
+        path1.addCircle(
+            (point1.x + 200).toFloat(),
+            (point1.y + 200).toFloat(),
+            150f,
+            Path.Direction.CW
+        )
+        path2.fillType = Path.FillType.INVERSE_WINDING
+        path2.addCircle(
+            (point2.x + 200).toFloat(),
+            (point2.y + 200).toFloat(),
+            150f,
+            Path.Direction.CW
+        )
     }
 }

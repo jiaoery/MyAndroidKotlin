@@ -21,7 +21,7 @@ class Practice08XfermodeView @JvmOverloads constructor(
         // 使用 paint.setXfermode() 设置不同的结合绘制效果
 
         // 别忘了用 canvas.saveLayer() 开启 off-screen buffer
-        val saved1 = canvas.saveLayer(null, null, Canvas.ALL_SAVE_FLAG)
+        val saved1 = canvas.saveLayer(null, null)
         canvas.drawBitmap(bitmap1!!, 0f, 0f, paint)
         val xfermode1: Xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC)
         paint.xfermode = xfermode1
@@ -29,7 +29,8 @@ class Practice08XfermodeView @JvmOverloads constructor(
         canvas.drawBitmap(bitmap2!!, 0f, 0f, paint)
         paint.xfermode = null
         canvas.restoreToCount(saved1)
-        val saved2 = canvas.saveLayer(null, null, Canvas.ALL_SAVE_FLAG)
+
+        val saved2 = canvas.saveLayer(null, null)
         canvas.drawBitmap(bitmap1!!, (bitmap1!!.width + 100).toFloat(), 0f, paint)
         // 第二个：PorterDuff.Mode.DST_IN
         val xfermode2: Xfermode = PorterDuffXfermode(PorterDuff.Mode.DST_IN)
@@ -37,7 +38,8 @@ class Practice08XfermodeView @JvmOverloads constructor(
         canvas.drawBitmap(bitmap2!!, (bitmap1!!.width + 100).toFloat(), 0f, paint)
         paint.xfermode = null
         canvas.restoreToCount(saved2)
-        val saved3 = canvas.saveLayer(null, null, Canvas.ALL_SAVE_FLAG)
+
+        val saved3 = canvas.saveLayer(null, null)
         canvas.drawBitmap(bitmap1!!, 0f, (bitmap1!!.height + 20).toFloat(), paint)
         // 第三个：PorterDuff.Mode.DST_OUT
         val xfermode3: Xfermode = PorterDuffXfermode(PorterDuff.Mode.DST_OUT)
