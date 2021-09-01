@@ -123,6 +123,12 @@
         <service android:name=".lifecycle.MyService" />
 
         <receiver android:name=".reciever.ExistRecievr" />
+
+        <receiver android:name=".reciever.NetWorkReciever">
+            <intent-filter>
+                <action android:name="android.intent.action.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
