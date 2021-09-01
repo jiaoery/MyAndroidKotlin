@@ -172,9 +172,8 @@ class GestureRollView @JvmOverloads constructor(
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                if (event.x < circleRadius || event.x > viewWidth - circleRadius) return super.onTouchEvent(
-                    event
-                )
+                if (event.x < circleRadius || event.x > viewWidth - circleRadius)
+                    return super.onTouchEvent(event)
                 circleCenterX = event.x
                 invalidate()
             }
