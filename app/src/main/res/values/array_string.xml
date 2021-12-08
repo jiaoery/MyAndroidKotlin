@@ -19,6 +19,7 @@
         <item>com.example.myandroidkotlin.customview.Hencoder4Activity</item>
         <item>com.example.myandroidkotlin.view.TestSpreadViewActivity</item>
         <item>com.example.myandroidkotlin.view.TestDimpleViewActivity</item>
+        <item>com.example.myandroidkotlin.customview.TestTextMeasureActivity</item>
         <item>com.example.myandroidkotlin.notification.NotificationActivity</item>
 
     </string-array>

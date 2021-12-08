@@ -5,18 +5,18 @@
     <solid
         android:color="#cfffffff"
         />
-    
+
     <!-- 四周边缘的圆角 -->
     <corners
         android:radius="4dip"
         />
-    
+
     <padding
         android:left="4dip"
         android:top="4dip"
         android:right="4dip"
         android:bottom="4dip"/>
-    
+
     <!-- <size 
         android:width="200dip"
         android:height="100dip"/> -->
