@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'androidx.navigation.safeargs'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -104,6 +105,7 @@ android {
     buildFeatures {
         dataBinding = true
     }
+
 }
 
 dependencies {

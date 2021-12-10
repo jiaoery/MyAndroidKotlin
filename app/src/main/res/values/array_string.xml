@@ -21,6 +21,7 @@
         <item>com.example.myandroidkotlin.view.TestDimpleViewActivity</item>
         <item>com.example.myandroidkotlin.customview.TestTextMeasureActivity</item>
         <item>com.example.myandroidkotlin.notification.NotificationActivity</item>
+        <item>com.example.myandroidkotlin.activity.FirstActivity</item>
 
     </string-array>
 </resources>

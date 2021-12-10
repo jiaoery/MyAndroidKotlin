@@ -18,7 +18,13 @@
         android:label="${app_name}"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
-        <activity android:name=".customview.TestTextMeasureActivity"></activity>
+        <activity
+            android:name=".activity.SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FirstActivity"
+            android:exported="false" />
+        <activity android:name=".customview.TestTextMeasureActivity" />
         <activity
             android:name=".customview.XformodeActivity"
             android:configChanges="keyboardHidden|orientation"
