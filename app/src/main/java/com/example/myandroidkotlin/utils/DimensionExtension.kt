@@ -17,3 +17,5 @@ val Float.sp
         Resources.getSystem().displayMetrics
     )
 
+val Int.dp
+    get() = this.toFloat().dp

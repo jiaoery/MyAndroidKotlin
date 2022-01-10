@@ -33,7 +33,7 @@ import com.example.myandroidkotlin.databinding.viewmodel.Popularity
  * A Binding Adapter that is called whenever the value of the attribute `app:popularityIcon`
  * changes. Receives a popularity level that determines the icon and tint color to use.
  */
-@BindingAdapter("app:popularityIcon")
+@BindingAdapter("popularityIcon")
 fun popularityIcon(view: ImageView, popularity: Popularity) {
 
     val color = getAssociatedColor(popularity, view.context)
@@ -47,7 +47,7 @@ fun popularityIcon(view: ImageView, popularity: Popularity) {
  * A Binding Adapter that is called whenever the value of the attribute `android:progressTint`
  * changes. Depending on the value it determines the color of the progress bar.
  */
-@BindingAdapter("app:progressTint")
+@BindingAdapter("progressTint")
 fun tintPopularity(view: ProgressBar, popularity: Popularity) {
 
     val color = getAssociatedColor(popularity, view.context)
@@ -63,7 +63,7 @@ fun tintPopularity(view: ProgressBar, popularity: Popularity) {
  *  Showcases Binding Adapters with multiple attributes. Note that this adapter is called
  *  whenever any of the attribute changes.
  */
-@BindingAdapter(value = ["app:progressScaled", "android:max"], requireAll = true)
+@BindingAdapter(value = ["progressScaled", "android:max"], requireAll = true)
 fun setProgress(progressBar: ProgressBar, likes: Int, max: Int) {
     progressBar.progress = (likes * max / 5).coerceAtMost(max)
 }
@@ -72,7 +72,7 @@ fun setProgress(progressBar: ProgressBar, likes: Int, max: Int) {
  * Unused Binding Adapter to replace the Binding Converter that hides a view if the number
  * of likes is zero.
  */
-@BindingAdapter("app:hideIfZero")
+@BindingAdapter("hideIfZero")
 fun hideIfZero(view: View, number: Int) {
     view.visibility = if (number == 0) View.GONE else View.VISIBLE
 }

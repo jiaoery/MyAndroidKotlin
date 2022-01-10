@@ -19,7 +19,9 @@
         <item>hencoder 自定义练习canvas 辅助绘制</item>
         <item>水波纹扩散效果</item>
         <item>粒子效果</item>
+        <item>文字测量</item>
         <item>通知 Notification</item>
+        <item>Activity Parcelable</item>
 
     </string-array>
 </resources>

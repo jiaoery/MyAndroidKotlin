@@ -69,7 +69,7 @@
         </shape>
         </clip>
     </item>
-    
+
     <item>
         <shape
             android:innerRadius="100dip"
