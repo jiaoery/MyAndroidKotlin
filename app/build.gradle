@@ -106,6 +106,13 @@ android {
         dataBinding = true
     }
 
+    //自定义生成的apk名称
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName =
+                    "myandroidkotlin_${productFlavors[0].name}_${variant.buildType.name}_v${variant.versionName}-${rootProject.ext.gitVersionName}.apk"
+        }
+    }
 }
 
 dependencies {
@@ -129,7 +136,7 @@ dependencies {
     //lifecycle extension contains LifeCycleService
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
-    implementation 'com.permissionx.guolindev:permissionx:1.4.0'
+    implementation 'com.guolindev.permissionx:permissionx:1.6.1'
     implementation "androidx.room:room-runtime:2.3.0"
 
     // To use Kotlin annotation processing tool (kapt)

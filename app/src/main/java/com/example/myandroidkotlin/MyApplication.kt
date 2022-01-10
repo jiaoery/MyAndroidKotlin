@@ -19,14 +19,9 @@ class MyApplication :Application() {
 
     override fun onCreate() {
         super.onCreate()
-        initSetting()
         ProcessLifecycleOwner.get().lifecycle.addObserver(ApplicationObserver())
         AppDatabase.create(this)
         DoraemonKit.install(this)
-    }
-
-    fun initSetting(){
-
     }
 
 }

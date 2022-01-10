@@ -41,8 +41,6 @@ android {
         }
         product{
             dimension "nation"
-
-
         }
 
 
