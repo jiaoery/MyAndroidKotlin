@@ -110,7 +110,7 @@ android {
     android.applicationVariants.all { variant ->
         variant.outputs.all {
             outputFileName =
-                    "myandroidkotlin_${productFlavors[0].name}_${variant.buildType.name}_v${variant.versionName}-${rootProject.ext.gitVersionName}.apk"
+                    "myandroidkotlin_${productFlavors[0].name}_${variant.buildType.name}_v${variant.versionName}.apk"
         }
     }
 }

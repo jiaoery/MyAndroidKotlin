@@ -16,7 +16,9 @@ import androidx.lifecycle.OnLifecycleEvent
  */
 class ApplicationObserver:LifecycleObserver {
 
-    private var TAG = javaClass.name
+    companion object{
+        private var TAG = javaClass.name
+    }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate(){

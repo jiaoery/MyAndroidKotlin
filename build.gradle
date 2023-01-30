@@ -37,8 +37,8 @@ task clean(type: Delete) {
 }
 
 ext {
-    git = org.ajoberstar.grgit.Grgit.open()
-    gitShortVersionName = "${git.head().abbreviatedId}"
-    gitIsDirty = "${git.status().isClean()?"":"-dirty"}"
-    gitVersionName = "${gitShortVersionName}${gitIsDirty}"
+//    git = org.ajoberstar.grgit.Grgit.open()
+//    gitShortVersionName = "${git.head().abbreviatedId}"
+//    gitIsDirty = "${git.status().isClean()?"":"-dirty"}"
+//    gitVersionName = "${gitShortVersionName}${gitIsDirty}"
 }

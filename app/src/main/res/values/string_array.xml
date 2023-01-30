@@ -22,6 +22,7 @@
         <item>文字测量</item>
         <item>通知 Notification</item>
         <item>Activity Parcelable</item>
+        <item>SavaInstance</item>
 
     </string-array>
 </resources>

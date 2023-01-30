@@ -22,6 +22,7 @@
         <item>com.example.myandroidkotlin.customview.TestTextMeasureActivity</item>
         <item>com.example.myandroidkotlin.notification.NotificationActivity</item>
         <item>com.example.myandroidkotlin.activity.FirstActivity</item>
+        <item>com.example.myandroidkotlin.saveinstance.SaveInstanceActivity</item>
 
     </string-array>
 </resources>
