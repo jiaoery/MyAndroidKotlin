@@ -23,6 +23,7 @@
         <item>通知 Notification</item>
         <item>Activity Parcelable</item>
         <item>SavaInstance</item>
+        <item>LaunchModel</item>
 
     </string-array>
 </resources>

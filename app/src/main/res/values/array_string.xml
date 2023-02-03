@@ -23,6 +23,7 @@
         <item>com.example.myandroidkotlin.notification.NotificationActivity</item>
         <item>com.example.myandroidkotlin.activity.FirstActivity</item>
         <item>com.example.myandroidkotlin.saveinstance.SaveInstanceActivity</item>
+        <item>com.example.myandroidkotlin.launchmodel.MainActivity</item>
 
     </string-array>
 </resources>

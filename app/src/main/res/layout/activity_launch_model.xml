@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".launchmodel.MainActivity">
+
+    <Button
+        android:id="@+id/btn_standard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Standard"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_singleTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="SingleTop"
+        app:layout_constraintEnd_toEndOf="@+id/btn_standard"
+        app:layout_constraintStart_toStartOf="@+id/btn_standard"
+        app:layout_constraintTop_toBottomOf="@+id/btn_standard" />
+
+    <Button
+        android:id="@+id/btn_singleTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="SingleTask"
+        app:layout_constraintEnd_toEndOf="@+id/btn_singleTop"
+        app:layout_constraintStart_toStartOf="@+id/btn_singleTop"
+        app:layout_constraintTop_toBottomOf="@+id/btn_singleTop" />
+
+    <Button
+        android:id="@+id/btn_singleInstance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SingleInstance"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_singleTask"
+        app:layout_constraintStart_toStartOf="@+id/btn_singleTask"
+        app:layout_constraintTop_toBottomOf="@+id/btn_singleTask" />
+
+    <TextView
+        android:id="@+id/tv_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_singleInstance"
+        app:layout_constraintStart_toStartOf="@+id/btn_singleInstance"
+        app:layout_constraintTop_toBottomOf="@+id/btn_singleInstance" />
+</androidx.constraintlayout.widget.ConstraintLayout>

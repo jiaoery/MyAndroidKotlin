@@ -19,6 +19,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAndroidKotlin">
         <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".launchmodel.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".launchmodel.SingleInstanceActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".launchmodel.SingleTaskActivity"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".launchmodel.SingleTopActivity"
+            android:exported="false"
+            android:launchMode="singleTop"/>
+        <activity
+            android:name=".launchmodel.StandardActivity"
+            android:exported="false"
+            android:launchMode="standard"/>
+        <activity
             android:name=".saveinstance.SaveInstanceActivity"
             android:exported="false">
             <meta-data
@@ -124,16 +154,6 @@
             android:name=".viewmodel.ViewModelAcivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".MainActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <service android:name=".lifecycle.MyService" />
 
